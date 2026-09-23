@@ -1,4 +1,37 @@
 clear_refresh_tokens:
+  name: Clear refresh tokens
+  description: Remove refresh tokens for one or all users.
   fields:
     user_id:
-      description: User ID (String) of the user that should get refresh tokens cleared
+      name: User ID
+      description: User ID of the user to process. Not required when all_users is enabled.
+      selector:
+        text:
+
+    mode:
+      name: Mode
+      description: Remove all tokens or only inactive tokens.
+      default: all
+      selector:
+        select:
+          options:
+            - all
+            - inactive
+
+    days:
+      name: Inactive days
+      description: Remove tokens that have not been used for this number of days.
+      default: 1
+      selector:
+        number:
+          min: 1
+          max: 3650
+          step: 1
+          mode: box
+
+    all_users:
+      name: All users
+      description: Apply the operation to all Home Assistant users.
+      default: false
+      selector:
+        boolean:
