@@ -7,7 +7,7 @@ Usage:
 2. Get the User ID of the user that you want to clear (In HA, go to Configuration -> Persons -> Users -> Press on your user name. Window will open that will show your ID.)
 3. Call `clear_refresh_tokens` service with `user_id` parameter with User ID that you retrieved in step 1.
 
-Changes:
+Changes to configure mode, days and all user's flag:
   - mode: inactive (only inactive tokens)  all (all tokens including active ones)
   - days: 5 (If mode: inactive , removes token if last refresh is older that days:)
   - all_users: true (if true, checks for all users, no need to specify an user_id. If false user_id: needs to be set)
